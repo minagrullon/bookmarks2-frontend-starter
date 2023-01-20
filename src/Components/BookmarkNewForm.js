@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -9,21 +9,21 @@ function BookmarkNewForm() {
 
   const addBookmark = (newBookmark) => {
     axios
-      .post(`${API}/bookmarks`, newBookmark)
+      .post(`${API}/bookmarks`, newBookmark) //backend
       .then(
         () => {
-          navigate(`/bookmarks`);
+          navigate(`/bookmarks`); //frontend
         },
         (error) => console.error(error)
       )
-      .catch((c) => console.warn('catch', c));
+      .catch((c) => console.warn("catch", c));
   };
 
   const [bookmark, setBookmark] = useState({
-    name: '',
-    url: '',
-    category: '',
-    is_favorite: false
+    name: "",
+    url: "",
+    category: "",
+    is_favorite: false,
   });
 
   const handleTextChange = (event) => {
@@ -54,7 +54,7 @@ function BookmarkNewForm() {
         <input
           id="url"
           type="text"
-          pattern="http[s]*://.+"
+          pattern="http[s]*://.+" //frontend validation pattern for the url
           required
           value={bookmark.url}
           placeholder="http://"
