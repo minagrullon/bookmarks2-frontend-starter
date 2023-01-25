@@ -1,4 +1,4 @@
-import Bookmarks from '../Components/Bookmarks';
+import Bookmarks from "../Components/Bookmarks";
 
 function Index() {
   return (
